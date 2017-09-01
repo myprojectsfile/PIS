@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  khodamooz:
+    image: khodamooz
+    build:
+      context: ./khodamooz
+      dockerfile: Dockerfile
