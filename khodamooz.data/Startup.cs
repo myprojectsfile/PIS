@@ -25,9 +25,9 @@ namespace khodamooz.data
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(_config);
-            
+
             services.AddDbContext<KhodamoozContext>(ServiceLifetime.Scoped)
-                .AddIdentity<User, UserRole>();
+                .AddIdentity<IdentityUser, IdentityRole>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

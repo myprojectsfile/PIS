@@ -18,12 +18,5 @@ namespace khodamooz.data
             _context = context;
         }
         
-        public User GetUser(string userName)
-        {
-            return _context.Users
-                .Where(u => u.UserName == userName)
-                .Cast<User>()
-                .FirstOrDefault();
-        }
     }
 }

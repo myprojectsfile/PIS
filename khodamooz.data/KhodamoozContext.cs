@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace khodamooz.data
 {
-    public class KhodamoozContext:IdentityDbContext<User,UserRole,int>
+    public class KhodamoozContext:IdentityDbContext<IdentityUser,IdentityRole,string>
     {
         private IConfigurationRoot _config;
         

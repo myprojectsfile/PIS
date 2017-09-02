@@ -38,7 +38,7 @@ namespace khodamooz
       services.AddScoped<IKhodamoozRepository, KhodamoozRepository>();
       services.AddTransient<IdentityInitializer>();
       
-      services.AddIdentity<User, UserRole>().AddEntityFrameworkStores<KhodamoozContext>();
+      services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<KhodamoozContext>();
       services.AddMvc();
     }
 
@@ -57,7 +57,7 @@ namespace khodamooz
         }
       });
 
-      app.UseIdentity();
+      app.UseAuthentication();
 
       app.UseMvcWithDefaultRoute();
       app.UseDefaultFiles();
