@@ -37,9 +37,37 @@ namespace khodamooz
       services.AddDbContext<KhodamoozContext>(ServiceLifetime.Scoped);
       services.AddScoped<IKhodamoozRepository, KhodamoozRepository>();
       services.AddTransient<IdentityInitializer>();
-      
+
       services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<KhodamoozContext>();
+
+      ConfigureApplicationCookie(services);
+
       services.AddMvc();
+    }
+
+    private static void ConfigureApplicationCookie(IServiceCollection services)
+    {
+      services.ConfigureApplicationCookie(options =>
+      {
+        options.Events.OnRedirectToLogin = (ctx) =>
+        {
+          if (ctx.Request.Path.StartsWithSegments("/api") && ctx.Response.StatusCode == 200)
+          {
+            ctx.Response.StatusCode = 401;
+          }
+          return Task.CompletedTask;
+        };
+
+        options.Events.OnRedirectToAccessDenied = (ctx) =>
+        {
+          if (ctx.Request.Path.StartsWithSegments("/api") && ctx.Response.StatusCode == 200)
+          {
+            ctx.Response.StatusCode = 401;
+          }
+          return Task.CompletedTask;
+        };
+
+      });
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +86,7 @@ namespace khodamooz
       });
 
       app.UseAuthentication();
-
+        
       app.UseMvcWithDefaultRoute();
       app.UseDefaultFiles();
       app.UseStaticFiles();
