@@ -11,7 +11,7 @@ using System;
 namespace khodamooz.data.Migrations
 {
     [DbContext(typeof(KhodamoozContext))]
-    [Migration("20170902183840_initdb")]
+    [Migration("20170907094923_initdb")]
     partial class initdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using khodamooz.data.Entities;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace khodamooz.data
 {
@@ -12,12 +13,14 @@ namespace khodamooz.data
         private readonly RoleManager<IdentityRole> _roleMgr;
         private readonly UserManager<IdentityUser> _userMgr;
         private readonly KhodamoozContext _context;
+        private readonly ILogger<IdentityInitializer> _logger;
 
-        public IdentityInitializer(UserManager<IdentityUser> userMgr, RoleManager<IdentityRole> roleMgr, KhodamoozContext context)
+        public IdentityInitializer(UserManager<IdentityUser> userMgr, RoleManager<IdentityRole> roleMgr, KhodamoozContext context, ILogger<IdentityInitializer> logger)
         {
             _userMgr = userMgr;
             _roleMgr = roleMgr;
             _context = context;
+            _logger = logger;
         }
 
         public async Task Seed()
@@ -34,13 +37,27 @@ namespace khodamooz.data
             //Create the default Admin account and apply the Administrator role
             string user = "mohammad";
             string password = "P@ssword123";
-            var userResult = await _userMgr.CreateAsync(new IdentityUser { UserName = user, Email = user, EmailConfirmed = true }, password);
-            var roleResult = await _userMgr.AddToRoleAsync(await _userMgr.FindByNameAsync(user), "Admin");
 
-            if (!userResult.Succeeded || !roleResult.Succeeded)
+            _logger.LogInformation(" ----------- adding user and role -----------");
+
+            try
             {
-                throw new InvalidOperationException("Faild To Build Users and Roles");
+                var userResult = await _userMgr.CreateAsync(new IdentityUser { UserName = user, Email = user, EmailConfirmed = true }, password);
+                var roleResult = await _userMgr.AddToRoleAsync(await _userMgr.FindByNameAsync(user), "Admin");
             }
+            catch (Exception ex)
+            {
+                _logger.LogError($"------ Exception Uccer In IdentityInitializer: {0}", ex);
+                //_logger.LogInformation($"user resul:{0}", userResult);
+                //_logger.LogInformation($"role resul:{0}", roleResult);
+
+                //if (!userResult.Succeeded || !roleResult.Succeeded)
+                //{
+                //    throw new InvalidOperationException("Faild To Build Users and Roles");
+                //}
+            }
+
+
 
             //var user = await _userMgr.FindByNameAsync("mohammad");
 

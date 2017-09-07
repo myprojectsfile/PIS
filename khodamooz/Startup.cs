@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using khodamooz.data;
 using khodamooz.data.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 
 namespace khodamooz
 {
@@ -39,6 +40,12 @@ namespace khodamooz
       services.AddTransient<IdentityInitializer>();
 
       services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<KhodamoozContext>();
+      services.AddAuthentication("MyCookieAuthenticationScheme")
+        .AddCookie(options =>
+        {
+          options.AccessDeniedPath = "/Account/Forbidden/";
+          options.LoginPath = "/Account/Unauthorized/";
+        });
 
       ConfigureApplicationCookie(services);
 
@@ -47,6 +54,7 @@ namespace khodamooz
 
     private static void ConfigureApplicationCookie(IServiceCollection services)
     {
+
       services.ConfigureApplicationCookie(options =>
       {
         options.Events.OnRedirectToLogin = (ctx) =>
@@ -71,8 +79,12 @@ namespace khodamooz
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env, IdentityInitializer identitySeeder)
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IdentityInitializer identitySeeder)
     {
+      loggerFactory.AddConsole(_config.GetSection("Logging"));
+      loggerFactory.AddDebug();
+      loggerFactory.AddFile("Logs/khodamooz-{Date}-log.txt");
+
       app.Use(async (context, next) =>
       {
         await next();
@@ -86,7 +98,7 @@ namespace khodamooz
       });
 
       app.UseAuthentication();
-        
+
       app.UseMvcWithDefaultRoute();
       app.UseDefaultFiles();
       app.UseStaticFiles();
