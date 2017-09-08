@@ -12,26 +12,36 @@ using Microsoft.Extensions.Logging;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace khodamooz
 {
   [Route("api/[controller]")]
   public class AuthController : Controller
   {
-    private KhodamoozContext _context;
-    private SignInManager<IdentityUser> _signInManager;
-    private UserManager<IdentityUser> _userManager;
-    private PasswordHasher<IdentityUser> _passHasher;
-    private ILogger<AuthController> _logger;
+    private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly UserManager<IdentityUser> _userManager;
+    private readonly IPasswordHasher<IdentityUser> _passHasher;
+    private readonly ILogger<AuthController> _logger;
+    private readonly IConfigurationRoot _config;
 
-    public AuthController(KhodamoozContext context, SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager, PasswordHasher<IdentityUser> passHasher, ILogger<AuthController> logger)
+    public AuthController(
+      SignInManager<IdentityUser> signInManager,
+      UserManager<IdentityUser> userManager,
+      IPasswordHasher<IdentityUser> passHasher,
+      ILogger<AuthController> logger,
+      IConfigurationRoot config
+      )
     {
-      _context = context;
       _signInManager = signInManager;
       _userManager = userManager;
       _passHasher = passHasher;
       _logger = logger;
+      _config = config;
     }
+
+
+
 
     [HttpPost("login")]
     [ValidateModel]
@@ -55,7 +65,7 @@ namespace khodamooz
 
     [HttpPost("getToken")]
     [ValidateModel]
-    public async Task<IActionResult> getToken([FromBody] CredentialModel model)
+    public async Task<IActionResult> GetToken([FromBody] CredentialModel model)
     {
       try
       {
@@ -64,18 +74,18 @@ namespace khodamooz
         {
           if (_passHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password) == PasswordVerificationResult.Success)
           {
-            var tokenClaims = new Claim[]
+            var tokenClaims = new[]
             {
               new Claim(JwtRegisteredClaimNames.Sub,user.UserName),
-              new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString())
+              new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("THISISSYMMETRICSECURITYKEYFORKHODAMOOZ.IO"));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["tokens:key"]));
             var tokenCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: "http://khodamooz.io",
-                audience: "http://khodamooz.io",
+                issuer: _config["tokens:issuer"],
+                audience: _config["tokens:audience"],
                 claims: tokenClaims,
                 expires: DateTime.UtcNow.AddHours(3),
                 signingCredentials: tokenCredentials
