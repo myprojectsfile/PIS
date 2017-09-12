@@ -41,8 +41,6 @@ namespace khodamooz
         .AddEntityFrameworkStores<KhodamoozContext>();
 
 
-      //      services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-
       services.AddAuthentication(option =>
         {
           option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -111,7 +109,6 @@ namespace khodamooz
       });
 
       app.UseAuthentication();
-
       app.UseMvcWithDefaultRoute();
       app.UseDefaultFiles();
       app.UseStaticFiles();

@@ -10,8 +10,11 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using Microsoft.Extensions.Logging;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Net;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Configuration;
 
 namespace khodamooz
@@ -63,6 +66,31 @@ namespace khodamooz
       return BadRequest("Failed To Login.");
     }
 
+    [HttpPost("register")]
+    [ValidateModel]
+    [AllowAnonymous]
+    public async Task<IActionResult> Register([FromBody] CredentialModel model)
+    {
+      var newUser=new IdentityUser()
+      {
+        UserName = model.UserName,
+      };
+
+      var userResult = await _userManager.CreateAsync(newUser, model.Password);
+
+      if (userResult.Succeeded)
+      {
+        return Ok(userResult);
+      }
+
+      foreach (var userResultError in userResult.Errors)
+      {
+        ModelState.AddModelError("registering user error",userResultError.Description);
+      }
+
+      return BadRequest(userResult.Errors);
+    }
+
     [HttpPost("getToken")]
     [ValidateModel]
     public async Task<IActionResult> GetToken([FromBody] CredentialModel model)
@@ -74,11 +102,13 @@ namespace khodamooz
         {
           if (_passHasher.VerifyHashedPassword(user, user.PasswordHash, model.Password) == PasswordVerificationResult.Success)
           {
+            var userClaims = await _userManager.GetClaimsAsync(user);
+
             var tokenClaims = new[]
             {
               new Claim(JwtRegisteredClaimNames.Sub,user.UserName),
               new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
-            };
+            }.Union(userClaims);
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["tokens:key"]));
             var tokenCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -101,13 +131,13 @@ namespace khodamooz
         }
         else
         {
-          return BadRequest("user or password is not correct.maybe this user doesnot exist.");
+          return Unauthorized();
         }
       }
       catch (Exception ex)
       {
-        _logger.LogError($"exeption thrown while generating token : {0}", ex);
-
+        _logger.LogError($"exeption thrown while generating token : {ex}");
+        return StatusCode((int)HttpStatusCode.InternalServerError,"internal server error while creating token.");
       }
 
       return BadRequest("Failed To generate token.");
