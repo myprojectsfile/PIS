@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions,Headers } from '@angular/http';
+import { Http, RequestOptions, Headers , Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from "rxjs/Observable";
 
@@ -8,7 +8,7 @@ export class AuthService {
 
     constructor(private http: Http) { }
 
-    login(username: string, password: string) {
+    login(username: string, password: string):Observable<Response> {
         var credential = {
             username: username,
             password: password
@@ -17,7 +17,6 @@ export class AuthService {
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        this.http.post("http://localhost:4200/api/auth/getToken", JSON.stringify(credential),options)
-            .subscribe(data => console.log(data));
+        return this.http.post("http://localhost:4200/api/auth/getToken", JSON.stringify(credential), options);
     }
 }

@@ -15,7 +15,7 @@ export class AppComponent {
 
     openModal() {
         this.dialog.open(LoginComponent, {
-            height: '300px',
+            height: '270px',
             width: '400px',
             position: {
                 top: '2%'

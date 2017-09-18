@@ -14,6 +14,16 @@ export class LoginComponent {
     password = '';
 
     onLogin() {
-        this.authService.login(this.username, this.password);
+        this.authService.login(this.username, this.password)
+            .subscribe(res => {
+                if (res.ok && res.status==200) {
+                    console.log("login succeeded");
+                }
+                else if (!res.ok && res.status == 401) {
+                    console.log("user or password is not correct");
+                }
+            }, error=>{
+                console.log("user or password is not correct");
+            });
     }
 }

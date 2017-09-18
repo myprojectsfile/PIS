@@ -1,16 +1,15 @@
 <div dir="rtl">
-  <h2 md-dialog-title>ورود به سامانه</h2>
+  <p md-dialog-title>ورود به سامانه</p>
   <md-dialog-content>
-
+    <form>
+      <md-form-field>
+        <input mdInput placeholder="نام کاربری" name="username" [(ngModel)]="username" />
+      </md-form-field>
+      <md-form-field>
+        <input type="password" mdInput placeholder="کلمه عبور" name="password" [(ngModel)]="password" />
+      </md-form-field>
+    </form>
   </md-dialog-content>
-  <form>
-    <md-form-field>
-      <input mdInput placeholder="نام کاربری" name="username" [(ngModel)]="username"/>
-    </md-form-field>
-    <md-form-field>
-      <input type="password" mdInput placeholder="کلمه عبور" name="password" [(ngModel)]="password" />
-    </md-form-field>  
-  </form>
   <md-dialog-actions>
     <button md-button md-dialog-close>انصراف</button>
     <!-- Can optionally provide a result for the closing dialog. -->
