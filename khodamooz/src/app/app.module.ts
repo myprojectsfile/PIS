@@ -6,6 +6,9 @@ import { HttpModule } from "@angular/http";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { ServicesModule } from "./services/services.module"
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule,MdDialogModule,MdInputModule } from '@angular/material';
+
 
 @NgModule({
     declarations: [
@@ -17,7 +20,11 @@ import { ServicesModule } from "./services/services.module"
         FormsModule,
         HttpModule,
         NgbModule.forRoot(),
-        ServicesModule
+        ServicesModule,
+        BrowserAnimationsModule,
+        MdButtonModule,
+        MdDialogModule,
+        MdInputModule
     ],
     providers: [],
     bootstrap: [AppComponent],
