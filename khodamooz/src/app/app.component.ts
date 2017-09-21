@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http'
-import { LoginComponent } from "./auth/login/login.component";
+import { Http } from '@angular/http';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
 import { MdDialog } from '@angular/material';
 
 @Component({
@@ -13,8 +14,18 @@ export class AppComponent {
     apiValues: string[] = [];
 
 
-    openModal() {
+    openLogin() {
         this.dialog.open(LoginComponent, {
+            height: '270px',
+            width: '400px',
+            position: {
+                top: '2%'
+            }
+        });
+    }
+
+    openSignup() {
+        this.dialog.open(SignupComponent, {
             height: '270px',
             width: '400px',
             position: {

@@ -226,3 +226,14 @@ END" (0723d8ff)
 2017-09-14T11:20:49.7356162+04:30 0HL7R6UDAQPCK:00000001 [INF] AuthenticationScheme: "Identity.Application" was challenged. (d45f1f38)
 2017-09-14T11:20:49.7356721+04:30 0HL7R6UDAQPCK:00000001 [INF] Executed action "khodamooz.ValuesController.Get (khodamooz)" in 0.2571ms (afa2e885)
 2017-09-14T11:20:49.7362030+04:30 0HL7R6UDAQPCK:00000001 [INF] Request finished in 0.9813ms 401  (791a596a)
+2017-09-14T12:17:25.8359210+04:30  [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-09-14T12:17:26.6030849+04:30  [INF] Executed DbCommand ("43"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2017-09-14T12:17:26.6967341+04:30  [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [r]
+        WHERE [r].[Name] = N'Admin')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
