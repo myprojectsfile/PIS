@@ -1,23 +1,10 @@
-<div class="container">
-  <br />
-  <div class="row">
-    <button class="btn btn-primary btn-sm">کلیک کن</button>
-  </div>
-  <br />
-  <div class="row">
-    <button md-raised-button color="primary"  (click)="openLogin()">ورود</button>
-    <button md-raised-button color="accent"  (click)="openSignup()">ثبت نام</button>    
-  </div>
-  <br />
-  <div class="row">
-    <button md-icon-button>
-      <md-icon class="md-24" aria-label="Example icon-button with a heart icon">favorite</md-icon>
-    </button>
-  </div>
-  <br/>
-  <div class="row">
-    <button class="btn btn-sm btn-outline-primary" (click)="openLogin()">ورود</button>
-  </div>
-</div>
-
+<nav>
+    <ul>
+      <li><a href="" [routerLink]="['/home']">home</a></li>
+      <li><a href="" [routerLink]="['/profile']">profile</a></li>
+      <li><a href="" [routerLink]="['/profile/profilePhoto']">profile --> profile photo</a></li>
+    </ul>
+  </nav>
+  <hr>
+<router-outlet></router-outlet>
 

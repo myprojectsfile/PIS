@@ -1,36 +1,32 @@
+import { ProfileModule } from './profile/profile.module';
+import { MaterialModule } from './shared/material.module';
+import { AuthModule } from './auth/auth.module';
+import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
 import { ServicesModule } from './services/services.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdDialogModule, MdInputModule } from '@angular/material';
-import { SignupComponent } from './auth/signup/signup.component';
-
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        LoginComponent,
-        SignupComponent
+        HomeComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
-        NgbModule.forRoot(),
         ServicesModule,
-        BrowserAnimationsModule,
-        MdButtonModule,
-        MdDialogModule,
-        MdInputModule
+        AuthModule,
+        MaterialModule,
+        AppRoutingModule,
+        ProfileModule        
     ],
     providers: [],
-    bootstrap: [AppComponent],
-    entryComponents: [LoginComponent,SignupComponent]
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
