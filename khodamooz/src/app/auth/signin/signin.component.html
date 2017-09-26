@@ -11,7 +11,7 @@
     </form>
   </md-dialog-content>
   <md-dialog-actions>
-    <button md-raised-button (click)="onLogin()" color="primary">ورود</button>
-    <button md-button md-dialog-close>انصراف</button>
+    <button md-raised-button (click)="signIn()" color="primary">ورود</button>
+    <button md-button [md-dialog-close]="false">انصراف</button>
   </md-dialog-actions>
 </div>

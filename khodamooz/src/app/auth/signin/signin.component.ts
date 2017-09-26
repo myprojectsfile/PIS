@@ -1,5 +1,6 @@
+import { UserService } from './../user.service';
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-signin',
@@ -7,17 +8,20 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  constructor(private authService: AuthService) {
+  constructor(private userService: UserService, public dialogRef: MdDialogRef<SigninComponent>) {
   }
 
   username = '';
   password = '';
 
-  onLogin() {
-    this.authService.login(this.username, this.password)
+  signIn() {
+    this.userService.signIn(this.username, this.password)
       .subscribe(res => {
         if (res.ok && res.status === 200) {
-          console.log('login succeeded');
+          // if signIn succeeded:
+          // write token to localstorage
+          localStorage.setItem('token', res.text());
+          this.dialogRef.close(true);
         } else if (!res.ok && res.status === 401) {
           console.log('user or password is not correct');
         } else {

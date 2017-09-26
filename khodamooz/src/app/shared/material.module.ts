@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MdButtonModule, MdDialogModule, MdInputModule } from '@angular/material';
+import { MdButtonModule, MdDialogModule, MdInputModule, MdSnackBarModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -9,13 +9,15 @@ import { MdButtonModule, MdDialogModule, MdInputModule } from '@angular/material
     BrowserAnimationsModule,
     MdButtonModule,
     MdDialogModule,
-    MdInputModule
+    MdInputModule,
+    MdSnackBarModule
   ],
-  exports:[
+  exports: [
     BrowserAnimationsModule,
     MdButtonModule,
     MdDialogModule,
-    MdInputModule
+    MdInputModule,
+    MdSnackBarModule
   ]
 })
 export class MaterialModule { }

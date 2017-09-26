@@ -1,38 +1,28 @@
+import { AuthService } from './../auth/auth.service';
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-import { SignupComponent } from '../auth/signup/signup.component';
-import { MdDialog } from '@angular/material';
-import { SigninComponent } from '../auth/signin/signin.component';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
 
-  constructor(private httpService: Http, private dialog: MdDialog) { }
-  apiValues: string[] = [];
+    constructor(private httpService: Http, private authServie: AuthService) { }
+    apiValues: string[] = [];
 
+    signIn() {
+        this.authServie.signIn();
+    }
+    signUp() {
+        this.authServie.signUp();
+    }
 
-  openLogin() {
-      this.dialog.open(SigninComponent, {
-          height: '270px',
-          width: '400px',
-          position: {
-              top: '2%'
-          }
-      });
-  }
-
-  openSignup() {
-      this.dialog.open(SignupComponent, {
-          height: '270px',
-          width: '400px',
-          position: {
-              top: '2%'
-          }
-      });
-  }
-
+    isSignedIn(){
+        return this.authServie.isSignedIn();
+    }
+    signOut(){
+        return this.authServie.signOut();
+    }
 }

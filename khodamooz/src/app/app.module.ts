@@ -7,7 +7,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { ServicesModule } from './services/services.module';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -19,11 +18,10 @@ import { HomeComponent } from './home/home.component';
         BrowserModule,
         FormsModule,
         HttpModule,
-        ServicesModule,
         AuthModule,
         MaterialModule,
         AppRoutingModule,
-        ProfileModule        
+        ProfileModule
     ],
     providers: [],
     bootstrap: [AppComponent]
