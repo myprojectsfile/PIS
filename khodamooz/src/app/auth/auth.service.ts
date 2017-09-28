@@ -40,10 +40,21 @@ export class AuthService {
     let tokenObject = JSON.parse(localStorage.getItem('token'));
     if (tokenObject) {
       let token = tokenObject.token;
-      console.log('decoded token is:' + JSON.stringify(this.jwtHelper.decodeToken(token)));
       if (this.jwtHelper.isTokenExpired(token))
         return false;
       else return true;
+    }
+    return false;
+  }
+
+  userHasClaim(claim: string) {
+    let tokenObject = JSON.parse(localStorage.getItem('token'));
+    if (tokenObject) {
+      let token = tokenObject.token;
+      if (!this.jwtHelper.isTokenExpired(token)) {
+        let decodedToken: Object = this.jwtHelper.decodeToken(token);
+        if (decodedToken.hasOwnProperty(claim)) return true;
+      }
     }
     return false;
   }
@@ -52,4 +63,5 @@ export class AuthService {
     localStorage.removeItem('token');
     this.isSignedIn();
   }
+
 }

@@ -331,3 +331,17 @@ WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
 2017-09-26T23:26:27.2217633+03:30 0HL850CK7B3MJ:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
 2017-09-26T23:26:27.2219551+03:30 0HL850CK7B3MJ:00000001 [INF] Executed action "khodamooz.AuthController.GetToken (khodamooz)" in 13.2851ms (afa2e885)
 2017-09-26T23:26:27.2220654+03:30 0HL850CK7B3MJ:00000001 [INF] Request finished in 13.7152ms 200 application/json; charset=utf-8 (791a596a)
+2017-09-26T23:38:18.1904320+03:30 0HL850CK7B3MK:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:4200/api/auth/getToken application/json 48 (ca22a1cb)
+2017-09-26T23:38:18.1924215+03:30 0HL850CK7B3MK:00000001 [INF] Executing action method "khodamooz.AuthController.GetToken (khodamooz)" with arguments (["khodamooz.Models.CredentialModel"]) - ModelState is Valid (ba7f4ac2)
+2017-09-26T23:38:18.1935542+03:30 0HL850CK7B3MK:00000001 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-09-26T23:38:18.9111334+03:30 0HL850CK7B3MK:00000001 [INF] Executed DbCommand ("9"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-09-26T23:38:18.9223653+03:30 0HL850CK7B3MK:00000001 [INF] Executed DbCommand ("2"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2017-09-26T23:38:18.9227508+03:30 0HL850CK7B3MK:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-09-26T23:38:18.9228716+03:30 0HL850CK7B3MK:00000001 [INF] Executed action "khodamooz.AuthController.GetToken (khodamooz)" in 731.8203ms (afa2e885)
+2017-09-26T23:38:18.9230589+03:30 0HL850CK7B3MK:00000001 [INF] Request finished in 732.8529ms 200 application/json; charset=utf-8 (791a596a)

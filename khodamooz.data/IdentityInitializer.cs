@@ -48,7 +48,7 @@ namespace khodamooz.data
                 var roleResult = await _userMgr.AddToRoleAsync(await _userMgr.FindByNameAsync(user), "Admin");
                 var claimResult = await _userMgr.AddClaimAsync(await _userMgr.FindByNameAsync(user),
                     new Claim("SuperUser", "True"));
-
+                    
                 _logger.LogInformation($"userResult:{0} , roleResult:{1} , claimResult:{2}", userResult, roleResult,
                     claimResult);
             }

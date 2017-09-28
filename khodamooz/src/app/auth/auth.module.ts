@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { JwtHelper } from 'angular2-jwt';
 import { UserService } from './user.service';
 import { AuthService } from './auth.service';
@@ -17,6 +18,6 @@ import { CommonModule } from '@angular/common';
   declarations: [SigninComponent, SignupComponent],
   entryComponents: [SigninComponent, SignupComponent],
   exports: [SigninComponent, SignupComponent],
-  providers: [AuthService, UserService,JwtHelper]
+  providers: [AuthService, UserService,JwtHelper,AuthGuard]
 })
 export class AuthModule { }

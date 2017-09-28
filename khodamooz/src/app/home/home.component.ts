@@ -19,10 +19,13 @@ export class HomeComponent {
         this.authServie.signUp();
     }
 
-    isSignedIn(){
+    isSignedIn() {
         return this.authServie.isSignedIn();
     }
-    signOut(){
+    signOut() {
         return this.authServie.signOut();
+    }
+    printClaims() {
+        
     }
 }

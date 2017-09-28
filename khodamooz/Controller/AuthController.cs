@@ -109,7 +109,7 @@ namespace khodamooz
               new Claim(JwtRegisteredClaimNames.Sub,user.UserName),
               new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
             }.Union(userClaims);
-
+              
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["tokens:key"]));
             var tokenCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
