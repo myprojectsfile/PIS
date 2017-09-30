@@ -12,18 +12,37 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-
     let nextRouteUrl = state.url;
     let routeClaims = this.getRouteClaims(nextRouteUrl);
     let routeCanActivate = true;
-    for (let claim of routeClaims) {
-      routeCanActivate = routeCanActivate && this.authService.userHasClaim(claim);
-    }
 
-    if(!routeCanActivate){
-      this.snackBar.open('شما مجوز دسترسی به این بخش را ندارید','خطا',{duration:2000});
+    // show signIn dialog if user must sign in
+    if (this.signInRequired(nextRouteUrl) && !this.authService.isSignedIn()) {
+      this.authService.signIn().subscribe(result => {
+        if (result) {
+          console.log('login succeeded in auth guard');          
+          for (let claim of routeClaims) {
+            routeCanActivate = routeCanActivate && this.authService.userHasClaim(claim);
+          }
+          if (!routeCanActivate) {
+            this.snackBar.open('شما مجوز دسترسی به این بخش را ندارید', 'خطا', { duration: 2000 });
+          }
+          console.log('return true from auth guard');          
+          return routeCanActivate;
+        } else { 
+          console.log('return false from auth guard');
+          return false;}
+      });
     }
-    return routeCanActivate;
+    else {
+      for (let claim of routeClaims) {
+        routeCanActivate = routeCanActivate && this.authService.userHasClaim(claim);
+      }
+      if (!routeCanActivate) {
+        this.snackBar.open('شما مجوز دسترسی به این بخش را ندارید', 'خطا', { duration: 2000 });
+      }
+      return routeCanActivate;
+    };
   }
   canActivateChild(
     next: ActivatedRouteSnapshot,
@@ -31,13 +50,32 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     let nextRouteUrl = state.url;
     let routeClaims = this.getRouteClaims(nextRouteUrl);
     let routeCanActivate = true;
-    for (let claim of routeClaims) {
-      routeCanActivate = routeCanActivate && this.authService.userHasClaim(claim);
+
+    // show signIn dialog if user must sign in
+    if (this.signInRequired(nextRouteUrl) && !this.authService.isSignedIn()) {
+      this.authService.signIn().subscribe(result => {
+        if (result) {
+          console.log('login succeeded in auth guard');
+          for (let claim of routeClaims) {
+            routeCanActivate = routeCanActivate && this.authService.userHasClaim(claim);
+          }
+          if (!routeCanActivate) {
+            this.snackBar.open('شما مجوز دسترسی به این بخش را ندارید', 'خطا', { duration: 2000 });
+          }
+          return routeCanActivate;
+        }
+        else return false;
+      });
     }
-    if(!routeCanActivate){
-      this.snackBar.open('شما مجوز دسترسی به این بخش را ندارید','خطا',{duration:2000});
-    }
-    return routeCanActivate;
+    else {
+      for (let claim of routeClaims) {
+        routeCanActivate = routeCanActivate && this.authService.userHasClaim(claim);
+      }
+      if (!routeCanActivate) {
+        this.snackBar.open('شما مجوز دسترسی به این بخش را ندارید', 'خطا', { duration: 2000 });
+      }
+      return routeCanActivate;
+    };
   }
 
 
@@ -45,5 +83,11 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     let route = RouteClaims.default.Routes.find(r => r.routeUrl === routeUrl);
     let claims = route.claims;
     return claims;
+  }
+
+  signInRequired(routeUrl: string): boolean {
+    let route = RouteClaims.default.Routes.find(r => r.routeUrl === routeUrl);
+    if (route) return (route.signInRequired === 'true');
+    else return false;
   }
 }

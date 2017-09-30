@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { Injectable } from '@angular/core';
@@ -9,7 +10,7 @@ export class AuthService {
 
   constructor(private dialog: MdDialog, private jwtHelper: JwtHelper, private snackBar: MdSnackBar) { }
 
-  signIn() {
+  signIn(): Observable<any> {
     let dialogRef = this.dialog.open(SigninComponent, {
       height: '270px',
       width: '400px',
@@ -18,12 +19,7 @@ export class AuthService {
       }
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.isSignedIn();
-        this.snackBar.open('خوش آمدید', null, { duration: 2000 });
-      }
-    });
+    return dialogRef.afterClosed()
   }
 
   signUp() {

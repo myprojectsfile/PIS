@@ -12,6 +12,8 @@ export class HomeComponent {
     constructor(private httpService: Http, private authServie: AuthService) { }
     apiValues: string[] = [];
 
+    signedIn: boolean = false;
+
     signIn() {
         this.authServie.signIn();
     }
@@ -26,6 +28,6 @@ export class HomeComponent {
         return this.authServie.signOut();
     }
     printClaims() {
-        
+
     }
 }

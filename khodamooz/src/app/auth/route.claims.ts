@@ -2,19 +2,18 @@ export default {
     "Routes": [
         {
             "routeUrl": "/home",
+            "signInRequired": "false",
             "claims": []
         },
         {
             "routeUrl": "/profile",
-            "claims": [
-                "SuperAdmin"
-            ]
+            "signInRequired": "true",
+            "claims": ["SuperUser"]
         },
         {
             "routeUrl": "/profile/profilePhoto",
-            "claims": [
-                "SuperUser"
-            ]
+            "signInRequired": "true",
+            "claims": ["SuperAdmin"]
         }
     ]
 }
