@@ -18,9 +18,9 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
     // show signIn dialog if user must sign in
     if (this.signInRequired(nextRouteUrl) && !this.authService.isSignedIn()) {
+      this.snackBar.open('ابتدا باید با نام کاربری خود وارد شوید', 'خطا', { duration: 2000 });      
       this.authService.signIn().subscribe(result => {
         if (result) {
-          console.log('login succeeded in auth guard');
           for (let claim of routeClaims) {
             routeCanActivate = routeCanActivate && this.authService.userHasClaim(claim);
           }
@@ -30,7 +30,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
           if (routeCanActivate) this.router.navigate([nextRouteUrl]);
           return routeCanActivate;
         } else {
-          console.log('return false from auth guard');
           return false;
         }
       });
@@ -54,16 +53,16 @@ export class AuthGuard implements CanActivate, CanActivateChild {
 
     // show signIn dialog if user must sign in
     if (this.signInRequired(nextRouteUrl) && !this.authService.isSignedIn()) {
+      this.snackBar.open('ابتدا باید با نام کاربری خود وارد شوید', 'خطا', { duration: 2000 });
       this.authService.signIn().subscribe(result => {
         if (result) {
-          console.log('login succeeded in auth guard');
           for (let claim of routeClaims) {
             routeCanActivate = routeCanActivate && this.authService.userHasClaim(claim);
           }
           if (!routeCanActivate) {
             this.snackBar.open('شما مجوز دسترسی به این بخش را ندارید', 'خطا', { duration: 2000 });
           }
-          if (routeCanActivate) this.router.navigate([nextRouteUrl]);          
+          if (routeCanActivate) this.router.navigate([nextRouteUrl]);
           return routeCanActivate;
         }
         else return false;
