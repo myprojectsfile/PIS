@@ -3,12 +3,12 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { Injectable } from '@angular/core';
 import { JwtHelper } from 'angular2-jwt';
-import { MdDialog, MdSnackBar } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private dialog: MdDialog, private jwtHelper: JwtHelper, private snackBar: MdSnackBar) { }
+  constructor(private dialog: MatDialog, private jwtHelper: JwtHelper, private snackBar: MatSnackBar) { }
 
   signIn(): Observable<any> {
     let dialogRef = this.dialog.open(SigninComponent, {

@@ -1,6 +1,6 @@
 import { UserService } from './../user.service';
 import { Component } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-signin',
@@ -8,7 +8,7 @@ import { MdDialogRef } from '@angular/material';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent {
-  constructor(private userService: UserService, public dialogRef: MdDialogRef<SigninComponent>) {
+  constructor(private userService: UserService, public dialogRef: MatDialogRef<SigninComponent>) {
   }
 
   username = '';

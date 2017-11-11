@@ -1,4 +1,4 @@
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
@@ -7,7 +7,7 @@ import * as RouteClaims from './route.claims';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild {
-  constructor(private authService: AuthService, private snackBar: MdSnackBar, private router: Router) {
+  constructor(private authService: AuthService, private snackBar: MatSnackBar, private router: Router) {
   }
   canActivate(
     next: ActivatedRouteSnapshot,
