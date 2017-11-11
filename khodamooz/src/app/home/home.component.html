@@ -1,16 +1,16 @@
-<div class="container">
-  <div class="row">
+<div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="10px">
+  <div fxFlex="10">
     <button mat-raised-button color="primary" (click)="signIn()">ورود</button>
+  </div>
+  <div fxFlex="10" fxFlexFill>
     <button mat-raised-button color="accent" (click)="signUp()">ثبت نام</button>
   </div>
-  <br>
-  <div class="row">
+  <div fxFlex="30">
     <button mat-raised-button color="accent" (click)="signOut()">خروج</button>
     <p *ngIf="isSignedIn()">user signed in</p>
     <p *ngIf="!isSignedIn()">user is not signed in</p>
   </div>
-  <br>
-  <div class="row">
+  <div fxFlex="10">
     <button mat-raised-button color="primary" (click)="printClaims()">print claims</button>
   </div>
 </div>

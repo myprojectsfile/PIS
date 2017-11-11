@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>khodamooz.data</AssemblyName>
+    <RootNamespace>khodamooz.data</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

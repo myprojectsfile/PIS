@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "khodamooz", "khodamooz\khodamooz.csproj", "{BE855FCF-D169-4FF9-A5DF-CC547E8870BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pis", "khodamooz\pis.csproj", "{BE855FCF-D169-4FF9-A5DF-CC547E8870BC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "khodamooz.data", "khodamooz.data\khodamooz.data.csproj", "{0A71E801-F270-4534-8477-2DA51AA1CA9F}"
 EndProject
