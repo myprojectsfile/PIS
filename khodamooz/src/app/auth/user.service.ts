@@ -12,10 +12,13 @@ export class UserService {
       username: username,
       password: password
     };
+    
+    //const apiUri = window.location.origin+':4200';
+    const apiUri = window.location.origin;
 
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
 
-    return this.http.post('http://localhost:4200/api/auth/getToken', JSON.stringify(credential), options);
+    return this.http.post(apiUri + '/api/auth/getToken', JSON.stringify(credential), options);
   }
 }
