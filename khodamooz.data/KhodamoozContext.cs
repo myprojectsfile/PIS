@@ -11,7 +11,7 @@ namespace khodamooz.data
     {
         private IConfigurationRoot _config;
         
-        public KhodamoozContext(DbContextOptions options,IConfigurationRoot config)
+        public KhodamoozContext(DbContextOptions<KhodamoozContext> options,IConfigurationRoot config)
             :base(options)
         {
             _config = config;

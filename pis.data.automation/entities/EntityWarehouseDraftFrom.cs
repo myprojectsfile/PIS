@@ -1,0 +1,100 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace pis.data.automation.entities
+{
+    public partial class EntityWarehouseDraftFrom
+    {
+        public int EntityCode { get; set; }
+        public int CategoryCode { get; set; }
+        public int RaitingHits { get; set; }
+        public int? Grade { get; set; }
+        public bool? IsPreNote { get; set; }
+        public bool Locked { get; set; }
+        public bool LocalLock { get; set; }
+        public int LocalLockUserCode { get; set; }
+        public int LocalLockRoleId { get; set; }
+        public int LockUserCode { get; set; }
+        public int LockRoleId { get; set; }
+        public string FieldsStatus { get; set; }
+        public bool IsPrivateSearch { get; set; }
+        public int PrivateSearchUserCode { get; set; }
+        public int PrivateSearchRoleId { get; set; }
+        public DateTime? LastSignatureDate { get; set; }
+        public string EntityNumber { get; set; }
+        public int NumberOfCopies { get; set; }
+        public string Version { get; set; }
+        public int OriginalVersionCode { get; set; }
+        public bool IsSigned { get; set; }
+        public int SecurityLevelCode { get; set; }
+        public bool? IsConfirm { get; set; }
+        public bool? IsActive { get; set; }
+        public int FirstEntityCode { get; set; }
+        public string From { get; set; }
+        public string ImportEntityNumber { get; set; }
+        public DateTime? ImportDate { get; set; }
+        public string ImportMethod { get; set; }
+        public string ImportDesc { get; set; }
+        public string ImportOriginNo { get; set; }
+        public DateTime? ImportOriginDate { get; set; }
+        public string NopgAttached { get; set; }
+        public string To { get; set; }
+        public string ExportEntityNumber { get; set; }
+        public DateTime? ExportDate { get; set; }
+        public string ExportMethod { get; set; }
+        public string ExportDesc { get; set; }
+        public int? ImportIndicatorId { get; set; }
+        public int? ExportIndicatorId { get; set; }
+        public int? ImportRegisterId { get; set; }
+        public int? ImportRegisterRoleId { get; set; }
+        public int? ExportRegisterId { get; set; }
+        public int? ExportRegisterRoleId { get; set; }
+        public string DocType { get; set; }
+        public string DocSubject { get; set; }
+        public string DocKeywords { get; set; }
+        public int? Priority { get; set; }
+        public int? ImportPriority { get; set; }
+        public int? ExportPriority { get; set; }
+        public int CreatorId { get; set; }
+        public int CreatorRoleId { get; set; }
+        public DateTime CreationDate { get; set; }
+        public DateTime LastEditDate { get; set; }
+        public string RequestSubject { get; set; }
+        public string GoodsDescription { get; set; }
+        public string DemandedFor { get; set; }
+        public string DarkhastKonandeh { get; set; }
+        public bool? BuyService { get; set; }
+        public bool? BuyGoods { get; set; }
+        public string OfficeManager { get; set; }
+        public string OfficeSignature { get; set; }
+        public string DeputyName { get; set; }
+        public string DeputySignature { get; set; }
+        public float? PriceEstimated { get; set; }
+        public string Karpardaz { get; set; }
+        public string Er { get; set; }
+        public string TadarokatExpert { get; set; }
+        public string TadarokatBoss { get; set; }
+        public DateTime? EstimatedPriceRecordDate { get; set; }
+        public bool? RecognizePermision { get; set; }
+        public bool? PaymentPermision { get; set; }
+        public string TopManagement { get; set; }
+        public string TopManagementSigniture { get; set; }
+        public string EtebaratExpert { get; set; }
+        public string EtebaratSigniture { get; set; }
+        public string FinanceManager { get; set; }
+        public string FinanceManagerSigniture { get; set; }
+        public bool? ServiceConfirm { get; set; }
+        public DateTime? GoodsReceiptDate { get; set; }
+        public bool? GoodsDelivery { get; set; }
+        public string GoodsReceiptNumber { get; set; }
+        public DateTime? GoodsReceiptDateSection { get; set; }
+        public string Er1 { get; set; }
+        public string GoodsReceiptKarpardaz { get; set; }
+        public DateTime? CostRecordDate { get; set; }
+        public string TadarokatExpertCostRecord { get; set; }
+        public string TadarikatBossCostRecord { get; set; }
+        public string TadarikatBossSignitureCostRecord { get; set; }
+        public string FromDescription { get; set; }
+        public DateTime? FromDate { get; set; }
+    }
+}
