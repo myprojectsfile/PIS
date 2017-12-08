@@ -9,7 +9,7 @@ import { Http } from '@angular/http';
 })
 export class HomeComponent {
 
-    constructor(private httpService: Http, private authServie: AuthService) { }
+    constructor(private authServie: AuthService) { }
     apiValues: string[] = [];
 
     signedIn: boolean = false;

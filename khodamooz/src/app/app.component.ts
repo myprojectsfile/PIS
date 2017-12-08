@@ -1,3 +1,4 @@
+import { AuthService } from './auth/auth.service';
 import { Component } from '@angular/core';
 
 
@@ -8,4 +9,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
+    constructor(private authServie: AuthService) {
+        
+    }
+
+    signIn() {
+        this.authServie.signIn();
+    }
+    signUp() {
+        this.authServie.signUp();
+    }
+
+    isSignedIn() {
+        return this.authServie.isSignedIn();
+    }
+    signOut() {
+        return this.authServie.signOut();
+    }
 }

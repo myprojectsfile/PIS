@@ -28,27 +28,23 @@ namespace khodamooz.data
             //create database schema if none exists
             _context.Database.EnsureCreated();
 
-            //If there is already an Administrator role, abort
-            if (_context.Roles.Any(r => r.Name == "Admin")) return;
-
-            //Create the Administartor Role
-            await _roleMgr.CreateAsync(new IdentityRole("Admin"));
-
-            //Create the default Admin account and apply the Administrator role
-            var user = "mohammad";
-            var password = "P@ssword123";
-
-            _logger.LogInformation(" ----------- adding user and role -----------");
+            //Create Admin Role
+            // await CreateRole("Admin");
+            //Create TransportCorp Role
+            await CreateRole("TransportCorp");
 
             try
             {
-                var userResult =
-                    await _userMgr.CreateAsync(new IdentityUser {UserName = user, Email = user, EmailConfirmed = true},
-                        password);
-                var roleResult = await _userMgr.AddToRoleAsync(await _userMgr.FindByNameAsync(user), "Admin");
-                var claimResult = await _userMgr.AddClaimAsync(await _userMgr.FindByNameAsync(user),
-                    new Claim("SuperUser", "True"));
-                    
+                _logger.LogInformation(" ----------- adding user and role -----------");
+
+                // var userResult = CreateUserAsync("mohammad", "P@ssword123", "mohammad@bpmo.ir", true);
+                // var roleResult = AddToRoleAsync("mohammad", "Admin");
+                // var claimResult = AddClaimToUserAsync("mohammad","SuperUser");
+
+                var userResult = CreateUserAsync("transco", "Tr@ns567", "transco@bpmo.ir", true);
+                var roleResult = AddToRoleAsync("transco", "TransportCorp");
+                var claimResult = AddClaimToUserAsync("transco","TransportCorp");
+
                 _logger.LogInformation($"userResult:{0} , roleResult:{1} , claimResult:{2}", userResult, roleResult,
                     claimResult);
             }
@@ -56,37 +52,33 @@ namespace khodamooz.data
             {
                 _logger.LogError($"------ Exception Uccer In IdentityInitializer: {0}", ex);
             }
+        }
 
+        public async Task<IdentityResult> CreateRole(string roleName)
+        {
+            //Check if role exist
+            if (_context.Roles.Any(r => r.Name == roleName)) return IdentityResult.Success;
+            //Create the Administartor Role
+            return await _roleMgr.CreateAsync(new IdentityRole(roleName));
+        }
 
-            //var user = await _userMgr.FindByNameAsync("mohammad");
+        public async Task<IdentityResult> CreateUserAsync(string username, string password, string email, bool emailConfiremed)
+        {
+            return await _userMgr.CreateAsync(new IdentityUser { UserName = username, Email = email, EmailConfirmed = emailConfiremed },
+                        password);
+        }
 
-            //if (user == null)
-            //{
-            //    if (!await _roleMgr.RoleExistsAsync("Admin"))
-            //    {
-            //        var role = new UserRole("Admin");
-            //        await _roleMgr.CreateAsync(role);
-            //        await _roleMgr.AddClaimAsync(role, new Claim("IsAdmin", "True"));
-            //    }
+        public async Task<IdentityResult> AddToRoleAsync(string username, string roleName)
+        {
+            var identityUser = await _userMgr.FindByNameAsync(username);
+            return await _userMgr.AddToRoleAsync(identityUser, roleName);
+        }
 
-            //    var newUser = new User
-            //    {
-            //        UserName = "mohammad",
-            //        FirstName = "mohammad",
-            //        LastName = "Ahmadi",
-            //        Email = "ahmadi.mohammad@bpmo.ir",
-            //        SecurityStamp = Guid.NewGuid().ToString()
-            //    };
-
-            //    var userResult = await _userMgr.CreateAsync(newUser, "123");
-            //    var roleResult = await _userMgr.AddToRoleAsync(newUser, "Admin");
-            //    var claimResult = await _userMgr.AddClaimAsync(newUser, new Claim("SuperUser", "True"));
-
-            //    if (!userResult.Succeeded || !roleResult.Succeeded || !claimResult.Succeeded)
-            //    {
-            //        throw new InvalidOperationException("Faild To Build Users and Roles");
-            //    }
-            //} 
+        public async Task<IdentityResult> AddClaimToUserAsync(string username, string claim)
+        {
+            var identityUser = await _userMgr.FindByNameAsync(username);
+            return await _userMgr.AddClaimAsync(identityUser,
+                new Claim(claim, "True"));
         }
     }
 }
