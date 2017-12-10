@@ -418,7 +418,7 @@ namespace pis.data.automation.entities
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
                 base.OnConfiguring(optionsBuilder);
-                optionsBuilder.UseSqlServer(_config["AutomationData:ConnectionString"]);
+                optionsBuilder.UseSqlServer(_config["Data:ccsConnection"]);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

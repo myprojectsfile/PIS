@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using pis.data.automation.entities;
+using pis.data.ccs.entities;
 
 namespace khodamooz
 {
@@ -42,6 +43,8 @@ namespace khodamooz
 
       //Inject Automation Context
       services.AddDbContext<eOrganizationContext>(ServiceLifetime.Scoped);
+      //Inject CCS Context
+      services.AddDbContext<CCSContext>(ServiceLifetime.Scoped);
 
       services.AddIdentity<IdentityUser, IdentityRole>()
         .AddEntityFrameworkStores<KhodamoozContext>();
@@ -71,6 +74,7 @@ namespace khodamooz
       services.AddAuthorization(options =>
       {
         options.AddPolicy("SuperUsers", policy => policy.RequireClaim("SuperUser"));
+        options.AddPolicy("TransportCorps", policy => policy.RequireClaim("TransportCorp"));
       });
     }
 

@@ -1,0 +1,918 @@
+2017-12-10T15:50:14.2268961+03:30  [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T15:50:14.4395225+03:30  [INF] Executed DbCommand ("25"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2017-12-10T15:50:14.6566731+03:30  [INF] Executed DbCommand ("20"ms) [Parameters=["@__roleName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [r]
+        WHERE [r].[Name] = @__roleName_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-12-10T15:50:14.7403610+03:30  [INF] Executed DbCommand ("5"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [AspNetRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2017-12-10T15:50:14.8729868+03:30  [INF] Executed DbCommand ("1"ms) [Parameters=["@p0='?' (Size = 450), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (@p0, @p1, @p2, @p3);" (0723d8ff)
+2017-12-10T15:50:14.8819165+03:30  [INF]  ----------- adding user and role ----------- (ecd5562c)
+2017-12-10T15:50:14.9418180+03:30  [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T15:50:14.9678686+03:30  [INF] Executed DbCommand ("1"ms) [Parameters=["@p0='?' (Size = 450), @p1='?', @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?', @p5='?', @p6='?', @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?', @p12='?' (Size = 4000), @p13='?', @p14='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);" (0723d8ff)
+2017-12-10T15:50:14.9747244+03:30  [INF] Executed DbCommand ("0"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T15:50:14.9799854+03:30  [INF] userResult:0 , roleResult:1 , claimResult:2 (f966dc91)
+2017-12-10T15:50:14.9801032+03:30  [INF] Executed DbCommand ("0"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T15:51:36.1687405+03:30 0HL9VP278T48A:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:4200/api/auth/getToken application/json 44 (ca22a1cb)
+2017-12-10T15:51:36.6955169+03:30 0HL9VP278T48A:00000001 [INF] Executing action method "khodamooz.AuthController.GetToken (pis)" with arguments (["khodamooz.Models.CredentialModel"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T15:51:36.6992659+03:30 0HL9VP278T48A:00000001 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T15:51:36.7038402+03:30 0HL9VP278T48A:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T15:51:36.7731650+03:30 0HL9VP278T48A:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2017-12-10T15:51:36.7994773+03:30 0HL9VP278T48A:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T15:51:36.8502270+03:30 0HL9VP278T48A:00000001 [INF] Executed action "khodamooz.AuthController.GetToken (pis)" in 315.1046ms (afa2e885)
+2017-12-10T15:51:36.8573316+03:30 0HL9VP278T48A:00000001 [INF] Request finished in 700.057ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T17:58:16.8357178+03:30  [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T17:58:17.0693029+03:30  [INF] Executed DbCommand ("29"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2017-12-10T17:58:17.3989547+03:30  [INF] Executed DbCommand ("33"ms) [Parameters=["@__roleName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [r]
+        WHERE [r].[Name] = @__roleName_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-12-10T17:58:17.4565338+03:30  [INF]  ----------- adding user and role ----------- (ecd5562c)
+2017-12-10T17:58:17.6450944+03:30  [INF] Executed DbCommand ("8"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T17:58:17.7294233+03:30  [INF] userResult:0 , roleResult:1 , claimResult:2 (f966dc91)
+2017-12-10T17:58:17.8313844+03:30  [ERR] Failed executing DbCommand ("8"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (627a98df)
+System.InvalidOperationException: Invalid operation. The connection is closed.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__108_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.<ExecuteAsync>d__17.MoveNext()
+2017-12-10T17:58:17.8909489+03:30  [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T17:58:18.0502676+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-12-10T17:58:18.0921915+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()
+2017-12-10T17:58:18.3228831+03:30 0HL9VR90R9A6J:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2017-12-10T17:58:18.7985593+03:30 0HL9VR90R9A6J:00000001 [INF] Request finished in 506.7162ms 404  (791a596a)
+2017-12-10T17:58:18.8497112+03:30 0HL9VR90R9A6J:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico   (ca22a1cb)
+2017-12-10T17:58:18.8951961+03:30 0HL9VR90R9A6J:00000002 [INF] Request finished in 45.3937ms 404  (791a596a)
+2017-12-10T18:00:38.0374853+03:30 0HL9VR90R9A6L:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Auth/getToken application/json 51 (ca22a1cb)
+2017-12-10T18:00:38.4048269+03:30 0HL9VR90R9A6L:00000001 [INF] Executing action method "khodamooz.AuthController.GetToken (pis)" with arguments (["khodamooz.Models.CredentialModel"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:00:38.4827161+03:30 0HL9VR90R9A6L:00000001 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:00:38.5401689+03:30 0HL9VR90R9A6L:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:00:38.6824299+03:30 0HL9VR90R9A6L:00000001 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2017-12-10T18:00:38.7585596+03:30 0HL9VR90R9A6L:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:00:38.8438536+03:30 0HL9VR90R9A6L:00000001 [INF] Executed action "khodamooz.AuthController.GetToken (pis)" in 643.5943ms (afa2e885)
+2017-12-10T18:00:38.8754576+03:30 0HL9VR90R9A6L:00000001 [INF] Request finished in 857.9175ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:04:53.2705172+03:30 0HL9VR90R9A6M:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/GetReceiptsContainers?receiptsNoString=[%22BUZCC13950020109%22] application/json  (ca22a1cb)
+2017-12-10T18:04:53.3208862+03:30 0HL9VR90R9A6M:00000001 [INF] Successfully validated the token. (60169667)
+2017-12-10T18:04:53.3694775+03:30 0HL9VR90R9A6M:00000001 [INF] AuthenticationScheme: "Bearer" was successfully authenticated. (1805f3b3)
+2017-12-10T18:04:53.4151774+03:30 0HL9VR90R9A6M:00000001 [INF] Request finished in 146.3413ms 404  (791a596a)
+2017-12-10T18:05:13.8083237+03:30 0HL9VR90R9A6M:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/GetReceiptsContainers/%5B%22BUZCC13950020109%22%5D application/json  (ca22a1cb)
+2017-12-10T18:05:13.8584736+03:30 0HL9VR90R9A6M:00000002 [INF] Successfully validated the token. (60169667)
+2017-12-10T18:05:13.9088209+03:30 0HL9VR90R9A6M:00000002 [INF] AuthenticationScheme: "Bearer" was successfully authenticated. (1805f3b3)
+2017-12-10T18:05:13.9576889+03:30 0HL9VR90R9A6M:00000002 [INF] Request finished in 147.7478ms 404  (791a596a)
+2017-12-10T18:05:15.6700878+03:30 0HL9VR90R9A6M:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/GetReceiptsContainers/%5B%22BUZCC13950020109%22%5D application/json  (ca22a1cb)
+2017-12-10T18:05:15.7164326+03:30 0HL9VR90R9A6M:00000003 [INF] Successfully validated the token. (60169667)
+2017-12-10T18:05:15.7632418+03:30 0HL9VR90R9A6M:00000003 [INF] AuthenticationScheme: "Bearer" was successfully authenticated. (1805f3b3)
+2017-12-10T18:05:15.8081668+03:30 0HL9VR90R9A6M:00000003 [INF] Request finished in 138.2914ms 404  (791a596a)
+2017-12-10T18:06:27.3096852+03:30  [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:06:27.4983889+03:30  [INF] Executed DbCommand ("20"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2017-12-10T18:06:27.7896970+03:30  [INF] Executed DbCommand ("20"ms) [Parameters=["@__roleName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [r]
+        WHERE [r].[Name] = @__roleName_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-12-10T18:06:27.8614729+03:30  [INF]  ----------- adding user and role ----------- (ecd5562c)
+2017-12-10T18:06:28.0572706+03:30  [INF] Executed DbCommand ("7"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:06:28.1576635+03:30  [INF] userResult:0 , roleResult:1 , claimResult:2 (f966dc91)
+2017-12-10T18:06:28.2449860+03:30  [INF] Executed DbCommand ("25"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:06:28.4272251+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-12-10T18:06:28.4782391+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()
+2017-12-10T18:06:28.9163476+03:30 0HL9VRDJ2BKFF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2017-12-10T18:06:29.3490059+03:30 0HL9VRDJ2BKFF:00000001 [INF] Request finished in 483.084ms 404  (791a596a)
+2017-12-10T18:06:29.3992823+03:30 0HL9VRDJ2BKFF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico   (ca22a1cb)
+2017-12-10T18:06:29.4459759+03:30 0HL9VRDJ2BKFF:00000002 [INF] Request finished in 45.303ms 404  (791a596a)
+2017-12-10T18:06:30.6587372+03:30 0HL9VRDJ2BKFF:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/Auth/getToken application/json 51 (ca22a1cb)
+2017-12-10T18:06:31.0005707+03:30 0HL9VRDJ2BKFF:00000003 [INF] Executing action method "khodamooz.AuthController.GetToken (pis)" with arguments (["khodamooz.Models.CredentialModel"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:06:31.0335962+03:30 0HL9VRDJ2BKFF:00000003 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:06:31.0889524+03:30 0HL9VRDJ2BKFF:00000003 [INF] Executed DbCommand ("0"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:06:31.2267202+03:30 0HL9VRDJ2BKFF:00000003 [INF] Executed DbCommand ("1"ms) [Parameters=["@__user_Id_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AspNetUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2017-12-10T18:06:31.3230991+03:30 0HL9VRDJ2BKFF:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:06:31.3707545+03:30 0HL9VRDJ2BKFF:00000003 [INF] Executed action "khodamooz.AuthController.GetToken (pis)" in 611.9933ms (afa2e885)
+2017-12-10T18:06:31.4223478+03:30 0HL9VRDJ2BKFF:00000003 [INF] Request finished in 763.5117ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:07:17.7238854+03:30 0HL9VRDJ2BKFF:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/GetReceiptsContainers/BUZCC13950020109 application/json  (ca22a1cb)
+2017-12-10T18:07:17.7771778+03:30 0HL9VRDJ2BKFF:00000004 [INF] Successfully validated the token. (60169667)
+2017-12-10T18:07:17.8371771+03:30 0HL9VRDJ2BKFF:00000004 [INF] AuthenticationScheme: "Bearer" was successfully authenticated. (1805f3b3)
+2017-12-10T18:07:17.8988759+03:30 0HL9VRDJ2BKFF:00000004 [INF] Request finished in 164.7267ms 404  (791a596a)
+2017-12-10T18:07:50.4646434+03:30 0HL9VRDJ2BKFF:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/BUZCC13950020109 application/json  (ca22a1cb)
+2017-12-10T18:07:50.5115405+03:30 0HL9VRDJ2BKFF:00000005 [INF] Successfully validated the token. (60169667)
+2017-12-10T18:07:50.5672484+03:30 0HL9VRDJ2BKFF:00000005 [INF] AuthenticationScheme: "Bearer" was successfully authenticated. (1805f3b3)
+2017-12-10T18:07:50.6705132+03:30 0HL9VRDJ2BKFF:00000005 [INF] Authorization failed for user: "transco". (a4ab1676)
+2017-12-10T18:07:50.7175076+03:30 0HL9VRDJ2BKFF:00000005 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter"'. (8b6446cb)
+2017-12-10T18:07:50.7661365+03:30 0HL9VRDJ2BKFF:00000005 [INF] Executing ForbidResult with authentication schemes ([]). (3f5cd4fd)
+2017-12-10T18:07:50.8432328+03:30 0HL9VRDJ2BKFF:00000005 [INF] AuthenticationScheme: "Identity.Application" was forbidden. (212684b8)
+2017-12-10T18:07:50.8929266+03:30 0HL9VRDJ2BKFF:00000005 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 258.5057ms (afa2e885)
+2017-12-10T18:07:50.9507370+03:30 0HL9VRDJ2BKFF:00000005 [INF] Request finished in 482.9566ms 401  (791a596a)
+2017-12-10T18:08:56.2872889+03:30  [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:08:56.5218706+03:30  [INF] Executed DbCommand ("21"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2017-12-10T18:08:56.8173497+03:30  [INF] Executed DbCommand ("19"ms) [Parameters=["@__roleName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [r]
+        WHERE [r].[Name] = @__roleName_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-12-10T18:08:56.8846273+03:30  [INF]  ----------- adding user and role ----------- (ecd5562c)
+2017-12-10T18:08:57.0759538+03:30  [INF] Executed DbCommand ("6"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:08:57.1798980+03:30  [INF] userResult:0 , roleResult:1 , claimResult:2 (f966dc91)
+2017-12-10T18:08:57.2592823+03:30  [INF] Executed DbCommand ("24"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:08:57.4297448+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-12-10T18:08:57.4796383+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()
+2017-12-10T18:08:57.7702683+03:30 0HL9VREVE44H0:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2017-12-10T18:08:58.2291720+03:30 0HL9VREVE44H0:00000001 [INF] Request finished in 482.9097ms 404  (791a596a)
+2017-12-10T18:08:58.2781773+03:30 0HL9VREVE44H0:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico   (ca22a1cb)
+2017-12-10T18:08:58.3247117+03:30 0HL9VREVE44H0:00000002 [INF] Request finished in 44.5238ms 404  (791a596a)
+2017-12-10T18:09:21.9978828+03:30 0HL9VREVE44H0:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/BUZCC13950020109 application/json  (ca22a1cb)
+2017-12-10T18:09:22.3093015+03:30 0HL9VREVE44H0:00000003 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["BUZCC13950020109"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:09:23.4813153+03:30 0HL9VREVE44H0:00000003 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:09:23.5798456+03:30 0HL9VREVE44H0:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:09:23.6671903+03:30 0HL9VREVE44H0:00000003 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 1561.7112ms (afa2e885)
+2017-12-10T18:09:23.7140329+03:30 0HL9VREVE44H0:00000003 [INF] Request finished in 1716.6634ms 404 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:10:51.1461782+03:30  [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:10:51.3591964+03:30  [INF] Executed DbCommand ("21"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2017-12-10T18:10:51.6636444+03:30  [INF] Executed DbCommand ("19"ms) [Parameters=["@__roleName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [r]
+        WHERE [r].[Name] = @__roleName_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-12-10T18:10:51.7268325+03:30  [INF]  ----------- adding user and role ----------- (ecd5562c)
+2017-12-10T18:10:51.9154286+03:30  [INF] Executed DbCommand ("6"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:10:51.9964764+03:30  [INF] userResult:0 , roleResult:1 , claimResult:2 (f966dc91)
+2017-12-10T18:10:52.0942075+03:30  [ERR] Failed executing DbCommand ("22"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (627a98df)
+System.InvalidOperationException: Invalid operation. The connection is closed.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__108_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.<ExecuteAsync>d__17.MoveNext()
+2017-12-10T18:10:52.1566306+03:30  [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:10:52.2602595+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-12-10T18:10:52.2965290+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()
+2017-12-10T18:10:52.5653873+03:30 0HL9VRG1KQAD5:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2017-12-10T18:10:52.9955128+03:30 0HL9VRG1KQAD5:00000001 [INF] Request finished in 474.0855ms 404  (791a596a)
+2017-12-10T18:10:53.0285247+03:30 0HL9VRG1KQAD5:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico   (ca22a1cb)
+2017-12-10T18:10:53.0765367+03:30 0HL9VRG1KQAD5:00000002 [INF] Request finished in 27.227ms 404  (791a596a)
+2017-12-10T18:10:56.1045655+03:30 0HL9VRG1KQAD5:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers?receiptsNoString=BUZCC13950020109 application/json  (ca22a1cb)
+2017-12-10T18:10:56.1303892+03:30 0HL9VRG1KQAD5:00000003 [INF] Request finished in 27.2724ms 404  (791a596a)
+2017-12-10T18:11:12.8275577+03:30 0HL9VRG1KQAD5:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/BUZCC13950020109 application/json  (ca22a1cb)
+2017-12-10T18:11:13.1186421+03:30 0HL9VRG1KQAD5:00000004 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["BUZCC13950020109"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:11:14.3290837+03:30 0HL9VRG1KQAD5:00000004 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:11:14.3862412+03:30 0HL9VRG1KQAD5:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:11:14.4752325+03:30 0HL9VRG1KQAD5:00000004 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 1539.3379ms (afa2e885)
+2017-12-10T18:11:14.5232646+03:30 0HL9VRG1KQAD5:00000004 [INF] Request finished in 1695.1681ms 404 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:15:50.9094119+03:30  [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:15:51.1019727+03:30  [INF] Executed DbCommand ("25"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2017-12-10T18:15:51.4068713+03:30  [INF] Executed DbCommand ("20"ms) [Parameters=["@__roleName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [r]
+        WHERE [r].[Name] = @__roleName_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-12-10T18:15:51.4660412+03:30  [INF]  ----------- adding user and role ----------- (ecd5562c)
+2017-12-10T18:15:51.6522612+03:30  [INF] Executed DbCommand ("8"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:15:51.7495821+03:30  [INF] userResult:0 , roleResult:1 , claimResult:2 (f966dc91)
+2017-12-10T18:15:51.8268229+03:30  [INF] Executed DbCommand ("25"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:15:51.9839139+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-12-10T18:15:52.0289354+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()
+2017-12-10T18:15:52.4444525+03:30 0HL9VRIR0NH5Q:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2017-12-10T18:15:52.8700245+03:30 0HL9VRIR0NH5Q:00000001 [INF] Request finished in 468.3886ms 404  (791a596a)
+2017-12-10T18:15:52.9202086+03:30 0HL9VRIR0NH5Q:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico   (ca22a1cb)
+2017-12-10T18:15:52.9655065+03:30 0HL9VRIR0NH5Q:00000002 [INF] Request finished in 45.1996ms 404  (791a596a)
+2017-12-10T18:16:03.1647910+03:30 0HL9VRIR0NH5Q:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/BUZCC13950020109 application/json  (ca22a1cb)
+2017-12-10T18:16:03.4553400+03:30 0HL9VRIR0NH5Q:00000003 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["BUZCC13950020109"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:16:04.6879285+03:30 0HL9VRIR0NH5Q:00000003 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:16:04.9717467+03:30 0HL9VRIR0NH5Q:00000003 [INF] Executed DbCommand ("15"ms) [Parameters=["@__receiptsNoString_0='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [ReceiptContainers].[ReceiptNumber] AS [ShomarehGhabzAnbar], [Containers].[containerNumber] AS [ShomarehContainer], [Containers].[grossWeight] AS [VaznNakhales], [Containers].[fullEmpty] AS [PorYaKhali], [Containers].[ISOContainerCode], [Containers].[tareWeight] AS [VaznContainer], [Containers].[sealNumber] AS [ShomarehPolomb], [Containers].[owner] AS [KhatKeshtirani], [Containers].[agent] AS [NamayandegiKeshtirani], [ReceiptContainers].[Consignee] AS [SahebGhabz]
+FROM [Container] AS [Containers]
+INNER JOIN [ReceiptContainer] AS [ReceiptContainers] ON [Containers].[containerID] = [ReceiptContainers].[ContainerID]
+WHERE [ReceiptContainers].[ReceiptNumber] = @__receiptsNoString_0" (0723d8ff)
+2017-12-10T18:16:05.0290138+03:30 0HL9VRIR0NH5Q:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:16:05.1603164+03:30 0HL9VRIR0NH5Q:00000003 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 1888.7736ms (afa2e885)
+2017-12-10T18:16:05.2098680+03:30 0HL9VRIR0NH5Q:00000003 [INF] Request finished in 2043.6128ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:16:20.5663068+03:30 0HL9VRIR0NH5Q:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/BUZCC13950020109 application/json  (ca22a1cb)
+2017-12-10T18:16:20.6169426+03:30 0HL9VRIR0NH5Q:00000004 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["BUZCC13950020109"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:16:20.6706704+03:30 0HL9VRIR0NH5Q:00000004 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:16:20.7308500+03:30 0HL9VRIR0NH5Q:00000004 [INF] Executed DbCommand ("5"ms) [Parameters=["@__receiptsNoString_0='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [ReceiptContainers].[ReceiptNumber] AS [ShomarehGhabzAnbar], [Containers].[containerNumber] AS [ShomarehContainer], [Containers].[grossWeight] AS [VaznNakhales], [Containers].[fullEmpty] AS [PorYaKhali], [Containers].[ISOContainerCode], [Containers].[tareWeight] AS [VaznContainer], [Containers].[sealNumber] AS [ShomarehPolomb], [Containers].[owner] AS [KhatKeshtirani], [Containers].[agent] AS [NamayandegiKeshtirani], [ReceiptContainers].[Consignee] AS [SahebGhabz]
+FROM [Container] AS [Containers]
+INNER JOIN [ReceiptContainer] AS [ReceiptContainers] ON [Containers].[containerID] = [ReceiptContainers].[ContainerID]
+WHERE [ReceiptContainers].[ReceiptNumber] = @__receiptsNoString_0" (0723d8ff)
+2017-12-10T18:16:20.7845289+03:30 0HL9VRIR0NH5Q:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:16:20.8372697+03:30 0HL9VRIR0NH5Q:00000004 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 217.5178ms (afa2e885)
+2017-12-10T18:16:20.8695425+03:30 0HL9VRIR0NH5Q:00000004 [INF] Request finished in 317.0591ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:16:28.8433464+03:30 0HL9VRIR0NH5Q:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/BUZCC13950020109 application/xml  (ca22a1cb)
+2017-12-10T18:16:28.8895799+03:30 0HL9VRIR0NH5Q:00000005 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["BUZCC13950020109"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:16:28.9386206+03:30 0HL9VRIR0NH5Q:00000005 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:16:28.9941190+03:30 0HL9VRIR0NH5Q:00000005 [INF] Executed DbCommand ("5"ms) [Parameters=["@__receiptsNoString_0='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [ReceiptContainers].[ReceiptNumber] AS [ShomarehGhabzAnbar], [Containers].[containerNumber] AS [ShomarehContainer], [Containers].[grossWeight] AS [VaznNakhales], [Containers].[fullEmpty] AS [PorYaKhali], [Containers].[ISOContainerCode], [Containers].[tareWeight] AS [VaznContainer], [Containers].[sealNumber] AS [ShomarehPolomb], [Containers].[owner] AS [KhatKeshtirani], [Containers].[agent] AS [NamayandegiKeshtirani], [ReceiptContainers].[Consignee] AS [SahebGhabz]
+FROM [Container] AS [Containers]
+INNER JOIN [ReceiptContainer] AS [ReceiptContainers] ON [Containers].[containerID] = [ReceiptContainers].[ContainerID]
+WHERE [ReceiptContainers].[ReceiptNumber] = @__receiptsNoString_0" (0723d8ff)
+2017-12-10T18:16:29.0435412+03:30 0HL9VRIR0NH5Q:00000005 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:16:29.0943702+03:30 0HL9VRIR0NH5Q:00000005 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 200.5761ms (afa2e885)
+2017-12-10T18:16:29.1483664+03:30 0HL9VRIR0NH5Q:00000005 [INF] Request finished in 295.8096ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:16:34.1309941+03:30 0HL9VRIR0NH5Q:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/BUZCC13950020109   (ca22a1cb)
+2017-12-10T18:16:34.1787421+03:30 0HL9VRIR0NH5Q:00000006 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["BUZCC13950020109"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:16:34.2245594+03:30 0HL9VRIR0NH5Q:00000006 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:16:34.2375455+03:30 0HL9VRIR0NH5Q:00000006 [INF] Executed DbCommand ("5"ms) [Parameters=["@__receiptsNoString_0='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [ReceiptContainers].[ReceiptNumber] AS [ShomarehGhabzAnbar], [Containers].[containerNumber] AS [ShomarehContainer], [Containers].[grossWeight] AS [VaznNakhales], [Containers].[fullEmpty] AS [PorYaKhali], [Containers].[ISOContainerCode], [Containers].[tareWeight] AS [VaznContainer], [Containers].[sealNumber] AS [ShomarehPolomb], [Containers].[owner] AS [KhatKeshtirani], [Containers].[agent] AS [NamayandegiKeshtirani], [ReceiptContainers].[Consignee] AS [SahebGhabz]
+FROM [Container] AS [Containers]
+INNER JOIN [ReceiptContainer] AS [ReceiptContainers] ON [Containers].[containerID] = [ReceiptContainers].[ContainerID]
+WHERE [ReceiptContainers].[ReceiptNumber] = @__receiptsNoString_0" (0723d8ff)
+2017-12-10T18:16:34.2825970+03:30 0HL9VRIR0NH5Q:00000006 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:16:34.3297005+03:30 0HL9VRIR0NH5Q:00000006 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 151.7155ms (afa2e885)
+2017-12-10T18:16:34.3737571+03:30 0HL9VRIR0NH5Q:00000006 [INF] Request finished in 245.6564ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:18:42.4831232+03:30 0HL9VRIR0NH5S:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/BUZCC13960018513   (ca22a1cb)
+2017-12-10T18:18:42.5332470+03:30 0HL9VRIR0NH5S:00000001 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["BUZCC13960018513"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:18:42.5848974+03:30 0HL9VRIR0NH5S:00000001 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:18:42.6259728+03:30 0HL9VRIR0NH5S:00000001 [INF] Executed DbCommand ("6"ms) [Parameters=["@__receiptsNoString_0='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [ReceiptContainers].[ReceiptNumber] AS [ShomarehGhabzAnbar], [Containers].[containerNumber] AS [ShomarehContainer], [Containers].[grossWeight] AS [VaznNakhales], [Containers].[fullEmpty] AS [PorYaKhali], [Containers].[ISOContainerCode], [Containers].[tareWeight] AS [VaznContainer], [Containers].[sealNumber] AS [ShomarehPolomb], [Containers].[owner] AS [KhatKeshtirani], [Containers].[agent] AS [NamayandegiKeshtirani], [ReceiptContainers].[Consignee] AS [SahebGhabz]
+FROM [Container] AS [Containers]
+INNER JOIN [ReceiptContainer] AS [ReceiptContainers] ON [Containers].[containerID] = [ReceiptContainers].[ContainerID]
+WHERE [ReceiptContainers].[ReceiptNumber] = @__receiptsNoString_0" (0723d8ff)
+2017-12-10T18:18:42.6771302+03:30 0HL9VRIR0NH5S:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:18:42.7149515+03:30 0HL9VRIR0NH5S:00000001 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 194.4591ms (afa2e885)
+2017-12-10T18:18:42.7746223+03:30 0HL9VRIR0NH5S:00000001 [INF] Request finished in 259.2109ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:19:07.7984148+03:30 0HL9VRIR0NH5S:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/BUZCC13960018513   (ca22a1cb)
+2017-12-10T18:19:07.8442473+03:30 0HL9VRIR0NH5S:00000002 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["BUZCC13960018513"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:19:07.8910156+03:30 0HL9VRIR0NH5S:00000002 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:19:07.9434133+03:30 0HL9VRIR0NH5S:00000002 [INF] Executed DbCommand ("5"ms) [Parameters=["@__receiptsNoString_0='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [ReceiptContainers].[ReceiptNumber] AS [ShomarehGhabzAnbar], [Containers].[containerNumber] AS [ShomarehContainer], [Containers].[grossWeight] AS [VaznNakhales], [Containers].[fullEmpty] AS [PorYaKhali], [Containers].[ISOContainerCode], [Containers].[tareWeight] AS [VaznContainer], [Containers].[sealNumber] AS [ShomarehPolomb], [Containers].[owner] AS [KhatKeshtirani], [Containers].[agent] AS [NamayandegiKeshtirani], [ReceiptContainers].[Consignee] AS [SahebGhabz]
+FROM [Container] AS [Containers]
+INNER JOIN [ReceiptContainer] AS [ReceiptContainers] ON [Containers].[containerID] = [ReceiptContainers].[ContainerID]
+WHERE [ReceiptContainers].[ReceiptNumber] = @__receiptsNoString_0" (0723d8ff)
+2017-12-10T18:19:07.9893071+03:30 0HL9VRIR0NH5S:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:19:08.0363110+03:30 0HL9VRIR0NH5S:00000002 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 190.8889ms (afa2e885)
+2017-12-10T18:19:08.0816697+03:30 0HL9VRIR0NH5S:00000002 [INF] Request finished in 282.7975ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:19:21.5033395+03:30 0HL9VRIR0NH5S:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/BUZCC13960018423   (ca22a1cb)
+2017-12-10T18:19:21.5506613+03:30 0HL9VRIR0NH5S:00000003 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["BUZCC13960018423"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:19:21.6026945+03:30 0HL9VRIR0NH5S:00000003 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:19:21.6603322+03:30 0HL9VRIR0NH5S:00000003 [INF] Executed DbCommand ("5"ms) [Parameters=["@__receiptsNoString_0='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [ReceiptContainers].[ReceiptNumber] AS [ShomarehGhabzAnbar], [Containers].[containerNumber] AS [ShomarehContainer], [Containers].[grossWeight] AS [VaznNakhales], [Containers].[fullEmpty] AS [PorYaKhali], [Containers].[ISOContainerCode], [Containers].[tareWeight] AS [VaznContainer], [Containers].[sealNumber] AS [ShomarehPolomb], [Containers].[owner] AS [KhatKeshtirani], [Containers].[agent] AS [NamayandegiKeshtirani], [ReceiptContainers].[Consignee] AS [SahebGhabz]
+FROM [Container] AS [Containers]
+INNER JOIN [ReceiptContainer] AS [ReceiptContainers] ON [Containers].[containerID] = [ReceiptContainers].[ContainerID]
+WHERE [ReceiptContainers].[ReceiptNumber] = @__receiptsNoString_0" (0723d8ff)
+2017-12-10T18:19:21.7103300+03:30 0HL9VRIR0NH5S:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:19:21.7597699+03:30 0HL9VRIR0NH5S:00000003 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 206.8652ms (afa2e885)
+2017-12-10T18:19:21.8057134+03:30 0HL9VRIR0NH5S:00000003 [INF] Request finished in 301.2659ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:21:50.8029732+03:30 0HL9VRIR0NH5T:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/BUZCC13960017587   (ca22a1cb)
+2017-12-10T18:21:50.8503976+03:30 0HL9VRIR0NH5T:00000001 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["BUZCC13960017587"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:21:50.8983658+03:30 0HL9VRIR0NH5T:00000001 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:21:50.9565895+03:30 0HL9VRIR0NH5T:00000001 [INF] Executed DbCommand ("5"ms) [Parameters=["@__receiptsNoString_0='?' (Size = 50)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [ReceiptContainers].[ReceiptNumber] AS [ShomarehGhabzAnbar], [Containers].[containerNumber] AS [ShomarehContainer], [Containers].[grossWeight] AS [VaznNakhales], [Containers].[fullEmpty] AS [PorYaKhali], [Containers].[ISOContainerCode], [Containers].[tareWeight] AS [VaznContainer], [Containers].[sealNumber] AS [ShomarehPolomb], [Containers].[owner] AS [KhatKeshtirani], [Containers].[agent] AS [NamayandegiKeshtirani], [ReceiptContainers].[Consignee] AS [SahebGhabz]
+FROM [Container] AS [Containers]
+INNER JOIN [ReceiptContainer] AS [ReceiptContainers] ON [Containers].[containerID] = [ReceiptContainers].[ContainerID]
+WHERE [ReceiptContainers].[ReceiptNumber] = @__receiptsNoString_0" (0723d8ff)
+2017-12-10T18:21:51.0078266+03:30 0HL9VRIR0NH5T:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:21:51.0638278+03:30 0HL9VRIR0NH5T:00000001 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 204.8974ms (afa2e885)
+2017-12-10T18:21:51.1376215+03:30 0HL9VRIR0NH5T:00000001 [INF] Request finished in 306.5833ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:26:05.4765593+03:30  [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:26:05.6939676+03:30  [INF] Executed DbCommand ("22"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2017-12-10T18:26:06.0202696+03:30  [INF] Executed DbCommand ("20"ms) [Parameters=["@__roleName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [r]
+        WHERE [r].[Name] = @__roleName_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-12-10T18:26:06.0803007+03:30  [INF]  ----------- adding user and role ----------- (ecd5562c)
+2017-12-10T18:26:06.2546678+03:30  [INF] Executed DbCommand ("6"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:26:06.3563704+03:30  [INF] userResult:0 , roleResult:1 , claimResult:2 (f966dc91)
+2017-12-10T18:26:06.4151194+03:30  [INF] Executed DbCommand ("24"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:26:06.5772921+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-12-10T18:26:06.6433830+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()
+2017-12-10T18:26:06.9904055+03:30 0HL9VROI5EC57:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2017-12-10T18:26:07.4260198+03:30 0HL9VROI5EC57:00000001 [INF] Request finished in 500.8099ms 404  (791a596a)
+2017-12-10T18:26:07.4776552+03:30 0HL9VROI5EC57:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico   (ca22a1cb)
+2017-12-10T18:26:07.5231084+03:30 0HL9VROI5EC57:00000002 [INF] Request finished in 45.5992ms 404  (791a596a)
+2017-12-10T18:26:36.9467022+03:30 0HL9VROI5EC57:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers/%5B%22BUZCC13960017587%22,%22BUZCC13960017671%22%5D   (ca22a1cb)
+2017-12-10T18:26:37.2667635+03:30 0HL9VROI5EC57:00000003 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["System.String[]"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:26:38.4567793+03:30 0HL9VROI5EC57:00000003 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:26:38.6249577+03:30 0HL9VROI5EC57:00000003 [INF] Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [ReceiptContainers].[ReceiptNumber] AS [ShomarehGhabzAnbar], [Containers].[containerNumber] AS [ShomarehContainer], [Containers].[grossWeight] AS [VaznNakhales], [Containers].[fullEmpty] AS [PorYaKhali], [Containers].[ISOContainerCode], [Containers].[tareWeight] AS [VaznContainer], [Containers].[sealNumber] AS [ShomarehPolomb], [Containers].[owner] AS [KhatKeshtirani], [Containers].[agent] AS [NamayandegiKeshtirani], [ReceiptContainers].[Consignee] AS [SahebGhabz]
+FROM [Container] AS [Containers]
+INNER JOIN [ReceiptContainer] AS [ReceiptContainers] ON [Containers].[containerID] = [ReceiptContainers].[ContainerID]
+WHERE [ReceiptContainers].[ReceiptNumber] IN (N'[\"BUZCC13960017587\",\"BUZCC13960017671\"]')" (0723d8ff)
+2017-12-10T18:26:38.6982558+03:30 0HL9VROI5EC57:00000003 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:26:38.7749130+03:30 0HL9VROI5EC57:00000003 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 1697.5189ms (afa2e885)
+2017-12-10T18:26:38.8216562+03:30 0HL9VROI5EC57:00000003 [INF] Request finished in 1876.8383ms 404 text/plain; charset=utf-8 (791a596a)
+2017-12-10T18:27:13.7956684+03:30 0HL9VROI5EC57:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/CCS/GetReceiptsContainers?receiptsNoString=[%22BUZCC13960017587%22,%22BUZCC13960017671%22]   (ca22a1cb)
+2017-12-10T18:27:13.8406692+03:30 0HL9VROI5EC57:00000004 [INF] Request finished in 45.1098ms 404  (791a596a)
+2017-12-10T18:28:40.6365527+03:30  [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:28:40.8300053+03:30  [INF] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2017-12-10T18:28:41.1235870+03:30  [INF] Executed DbCommand ("18"ms) [Parameters=["@__roleName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [r]
+        WHERE [r].[Name] = @__roleName_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-12-10T18:28:41.1873005+03:30  [INF]  ----------- adding user and role ----------- (ecd5562c)
+2017-12-10T18:28:41.3828272+03:30  [INF] Executed DbCommand ("6"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:28:41.4813857+03:30  [INF] userResult:0 , roleResult:1 , claimResult:2 (f966dc91)
+2017-12-10T18:28:41.5740828+03:30  [INF] Executed DbCommand ("25"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:28:41.7784532+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-12-10T18:28:41.8271638+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()
+2017-12-10T18:28:42.1058873+03:30 0HL9VRQ0CKAQC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2017-12-10T18:28:42.5055028+03:30 0HL9VRQ0CKAQC:00000001 [INF] Request finished in 463.2028ms 404  (791a596a)
+2017-12-10T18:28:42.5569320+03:30 0HL9VRQ0CKAQC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico   (ca22a1cb)
+2017-12-10T18:28:42.6021342+03:30 0HL9VRQ0CKAQC:00000002 [INF] Request finished in 45.0307ms 404  (791a596a)
+2017-12-10T18:29:04.5175735+03:30 0HL9VRQ0CKAQC:00000003 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CCS/GetReceiptsContainers text/plain 39 (ca22a1cb)
+2017-12-10T18:29:04.5773173+03:30 0HL9VRQ0CKAQC:00000003 [INF] Request finished in 60.9042ms 404  (791a596a)
+2017-12-10T18:29:52.8157219+03:30  [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"KhodamoozContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:29:53.0067351+03:30  [INF] Executed DbCommand ("21"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""IF EXISTS (SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE') SELECT 1 ELSE SELECT 0" (0723d8ff)
+2017-12-10T18:29:53.3018323+03:30  [INF] Executed DbCommand ("19"ms) [Parameters=["@__roleName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [r]
+        WHERE [r].[Name] = @__roleName_0)
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-12-10T18:29:53.3639134+03:30  [INF]  ----------- adding user and role ----------- (ecd5562c)
+2017-12-10T18:29:53.5346954+03:30  [INF] Executed DbCommand ("7"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:29:53.6362562+03:30  [INF] userResult:0 , roleResult:1 , claimResult:2 (f966dc91)
+2017-12-10T18:29:53.7378552+03:30  [ERR] Failed executing DbCommand ("3"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (627a98df)
+System.InvalidOperationException: BeginExecuteReader requires an open and available Connection. The connection's current state is closed.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__108_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.<ExecuteAsync>d__17.MoveNext()
+2017-12-10T18:29:53.8098562+03:30  [INF] Executed DbCommand ("23"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AspNetUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-12-10T18:29:53.9604895+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'KhodamoozContext'.
+   at Microsoft.EntityFrameworkCore.DbContext.CheckDisposed()
+   at Microsoft.EntityFrameworkCore.DbContext.get_InternalServiceProvider()
+   at Microsoft.EntityFrameworkCore.DbContext.get_DbContextDependencies()
+   at Microsoft.EntityFrameworkCore.DbContext.Microsoft.EntityFrameworkCore.Internal.IDbContextDependencies.get_StateManager()
+   at Microsoft.EntityFrameworkCore.Query.QueryContext.StartTracking(Object entity, EntityTrackingInfo entityTrackingInfo)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.<>c__DisplayClass18_0`2.<_TrackEntities>b__0(TOut result)
+   at System.Linq.AsyncEnumerable.SelectEnumerableAsyncIterator`2.<MoveNextCore>d__7.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1.ConfiguredTaskAwaiter.GetResult()
+   at System.Linq.AsyncEnumerable.AsyncIterator`1.<MoveNext>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+2017-12-10T18:29:53.9977469+03:30  [ERR] An exception occurred in the database while iterating the results of a query for context type '"khodamooz.data.KhodamoozContext"'."
+""System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()" (64e2593c)
+System.ObjectDisposedException: Cannot access a disposed object. A common cause of this error is disposing a context that was resolved from dependency injection and then later trying to use the same context instance elsewhere in your application. This may occur if you are calling Dispose() on the context, or wrapping the context in a using statement. If you are using dependency injection, you should let the dependency injection container take care of disposing context instances.
+Object name: 'AsyncDisposer'.
+   at Microsoft.EntityFrameworkCore.Internal.ConcurrencyDetector.AsyncDisposer.Dispose()
+   at Microsoft.EntityFrameworkCore.Query.Internal.AsyncLinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.<MoveNext>d__5.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<ExecuteSingletonAsyncQuery>d__23`1.MoveNext()
+2017-12-10T18:29:54.2076278+03:30 0HL9VRQLS14NS:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:5000/   (ca22a1cb)
+2017-12-10T18:29:54.6517008+03:30 0HL9VRQLS14NS:00000001 [INF] Request finished in 467.3138ms 404  (791a596a)
+2017-12-10T18:29:54.7029390+03:30 0HL9VRQLS14NS:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico   (ca22a1cb)
+2017-12-10T18:29:54.7494685+03:30 0HL9VRQLS14NS:00000002 [INF] Request finished in 46.0379ms 404  (791a596a)
+2017-12-10T18:31:07.3314300+03:30 0HL9VRQLS14NT:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CCS/GetReceiptsContainers text/plain 39 (ca22a1cb)
+2017-12-10T18:31:07.6273097+03:30 0HL9VRQLS14NT:00000001 [INF] Executing HttpStatusCodeResult, setting HTTP status code 415 (e28ccfae)
+2017-12-10T18:31:07.7093427+03:30 0HL9VRQLS14NT:00000001 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 247.6371ms (afa2e885)
+2017-12-10T18:31:07.7731233+03:30 0HL9VRQLS14NT:00000001 [INF] Request finished in 442.6474ms 415  (791a596a)
+2017-12-10T18:31:51.4621011+03:30 0HL9VRQLS14NT:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CCS/GetReceiptsContainers application/json 39 (ca22a1cb)
+2017-12-10T18:31:51.5933526+03:30 0HL9VRQLS14NT:00000002 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["System.String[]"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:31:52.8009613+03:30 0HL9VRQLS14NT:00000002 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:31:52.9341986+03:30 0HL9VRQLS14NT:00000002 [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [ReceiptContainers].[ReceiptNumber] AS [ShomarehGhabzAnbar], [Containers].[containerNumber] AS [ShomarehContainer], [Containers].[grossWeight] AS [VaznNakhales], [Containers].[fullEmpty] AS [PorYaKhali], [Containers].[ISOContainerCode], [Containers].[tareWeight] AS [VaznContainer], [Containers].[sealNumber] AS [ShomarehPolomb], [Containers].[owner] AS [KhatKeshtirani], [Containers].[agent] AS [NamayandegiKeshtirani], [ReceiptContainers].[Consignee] AS [SahebGhabz]
+FROM [Container] AS [Containers]
+INNER JOIN [ReceiptContainer] AS [ReceiptContainers] ON [Containers].[containerID] = [ReceiptContainers].[ContainerID]
+WHERE [ReceiptContainers].[ReceiptNumber] IN (N'BUZCC13960017587', N'BUZCC13960017671')" (0723d8ff)
+2017-12-10T18:31:52.9985976+03:30 0HL9VRQLS14NT:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:31:53.0877839+03:30 0HL9VRQLS14NT:00000002 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 1578.1015ms (afa2e885)
+2017-12-10T18:31:53.1188100+03:30 0HL9VRQLS14NT:00000002 [INF] Request finished in 1676.2325ms 200 application/json; charset=utf-8 (791a596a)
+2017-12-10T18:33:55.6205215+03:30 0HL9VRQLS14NU:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/CCS/GetReceiptsContainers application/json 58 (ca22a1cb)
+2017-12-10T18:33:55.6684049+03:30 0HL9VRQLS14NU:00000001 [INF] Executing action method "pis.CCSController.GetReceiptsContainers (pis)" with arguments (["System.String[]"]) - ModelState is Valid (ba7f4ac2)
+2017-12-10T18:33:55.7161269+03:30 0HL9VRQLS14NU:00000001 [INF] Entity Framework Core "2.0.1-rtm-125" initialized '"CCSContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None" (9958f5bb)
+2017-12-10T18:33:55.7784008+03:30 0HL9VRQLS14NU:00000001 [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [ReceiptContainers].[ReceiptNumber] AS [ShomarehGhabzAnbar], [Containers].[containerNumber] AS [ShomarehContainer], [Containers].[grossWeight] AS [VaznNakhales], [Containers].[fullEmpty] AS [PorYaKhali], [Containers].[ISOContainerCode], [Containers].[tareWeight] AS [VaznContainer], [Containers].[sealNumber] AS [ShomarehPolomb], [Containers].[owner] AS [KhatKeshtirani], [Containers].[agent] AS [NamayandegiKeshtirani], [ReceiptContainers].[Consignee] AS [SahebGhabz]
+FROM [Container] AS [Containers]
+INNER JOIN [ReceiptContainer] AS [ReceiptContainers] ON [Containers].[containerID] = [ReceiptContainers].[ContainerID]
+WHERE [ReceiptContainers].[ReceiptNumber] IN (N'BUZCC13960017587', N'BUZCC13960017671', N'BUZCC13960017526')" (0723d8ff)
+2017-12-10T18:33:55.8260048+03:30 0HL9VRQLS14NU:00000001 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-12-10T18:33:55.8827930+03:30 0HL9VRQLS14NU:00000001 [INF] Executed action "pis.CCSController.GetReceiptsContainers (pis)" in 210.2118ms (afa2e885)
+2017-12-10T18:33:55.9414146+03:30 0HL9VRQLS14NU:00000001 [INF] Request finished in 307.8681ms 200 application/json; charset=utf-8 (791a596a)

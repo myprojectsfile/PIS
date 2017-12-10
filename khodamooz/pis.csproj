@@ -27,6 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\khodamooz.data\khodamooz.data.csproj" />
     <ProjectReference Include="..\pis.data.automation\pis.data.automation.csproj" />
+    <ProjectReference Include="..\pis.data.ccs\pis.data.ccs.csproj" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\app\auth\credentialModel.ts" />
