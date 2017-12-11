@@ -25,28 +25,29 @@ namespace khodamooz.data
 
         public async Task Seed()
         {
-            //create database schema if none exists
+            //Create database schema if none exists
             _context.Database.EnsureCreated();
-
-            //Create Admin Role
-            // await CreateRole("Admin");
-            //Create TransportCorp Role
-            await CreateRole("TransportCorp");
 
             try
             {
-                _logger.LogInformation(" ----------- adding user and role -----------");
+                _logger.LogInformation(" ----------- Creating Admin Role -----------");
+                if (! _context.Roles.Any(r => r.Name == "Admin"))
+                    await _roleMgr.CreateAsync(new IdentityRole("Admin"));
+                //Create mohammad user
+                await _userMgr.CreateAsync(new IdentityUser { UserName = "mohammad", Email = "mohammad@bpmo.ir", EmailConfirmed = true }, "P@ssword123");
+                var identityUser = await _userMgr.FindByNameAsync("mohammad");
+                await _userMgr.AddToRoleAsync(identityUser, "Admin");
+                await _userMgr.AddClaimAsync(identityUser, new Claim("SuperUser", "True"));
 
-                // var userResult = CreateUserAsync("mohammad", "P@ssword123", "mohammad@bpmo.ir", true);
-                // var roleResult = AddToRoleAsync("mohammad", "Admin");
-                // var claimResult = AddClaimToUserAsync("mohammad","SuperUser");
-
-                var userResult = CreateUserAsync("transco", "Tr@ns567", "transco@bpmo.ir", true);
-                var roleResult = AddToRoleAsync("transco", "TransportCorp");
-                var claimResult = AddClaimToUserAsync("transco","TransportCorp");
-
-                _logger.LogInformation($"userResult:{0} , roleResult:{1} , claimResult:{2}", userResult, roleResult,
-                    claimResult);
+               _logger.LogInformation(" ----------- Creating TransportCorp Role -----------");
+                if (! _context.Roles.Any(r => r.Name == "TransportCorp"))
+                    await _roleMgr.CreateAsync(new IdentityRole("TransportCorp"));
+                //Create transco user
+                await _userMgr.CreateAsync(new IdentityUser { UserName = "transco", Email = "transco@trans.ir", EmailConfirmed = true }, "Tr@ns567");
+                identityUser = await _userMgr.FindByNameAsync("transco");
+                await _userMgr.AddToRoleAsync(identityUser, "TransportCorp");
+                await _userMgr.AddClaimAsync(identityUser, new Claim("TransportCorp", "True"));
+                
             }
             catch (Exception ex)
             {
@@ -54,31 +55,5 @@ namespace khodamooz.data
             }
         }
 
-        public async Task<IdentityResult> CreateRole(string roleName)
-        {
-            //Check if role exist
-            if (_context.Roles.Any(r => r.Name == roleName)) return IdentityResult.Success;
-            //Create the Administartor Role
-            return await _roleMgr.CreateAsync(new IdentityRole(roleName));
-        }
-
-        public async Task<IdentityResult> CreateUserAsync(string username, string password, string email, bool emailConfiremed)
-        {
-            return await _userMgr.CreateAsync(new IdentityUser { UserName = username, Email = email, EmailConfirmed = emailConfiremed },
-                        password);
-        }
-
-        public async Task<IdentityResult> AddToRoleAsync(string username, string roleName)
-        {
-            var identityUser = await _userMgr.FindByNameAsync(username);
-            return await _userMgr.AddToRoleAsync(identityUser, roleName);
-        }
-
-        public async Task<IdentityResult> AddClaimToUserAsync(string username, string claim)
-        {
-            var identityUser = await _userMgr.FindByNameAsync(username);
-            return await _userMgr.AddClaimAsync(identityUser,
-                new Claim(claim, "True"));
-        }
     }
 }

@@ -206,7 +206,7 @@ namespace pis.data.ccs.entities
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(_config["Data:ccsConnection"]);
+            optionsBuilder.UseSqlServer(_config["Data:CCSConnection"]);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
