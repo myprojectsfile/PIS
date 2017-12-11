@@ -14,6 +14,11 @@ export default {
             "routeUrl": "/profile/profilePhoto",
             "signInRequired": "true",
             "claims": ["SuperAdmin"]
+        },
+        {
+            "routeUrl": "/receiptContainer",
+            "signInRequired": "true",
+            "claims": ["TransportCorp"]
         }
     ]
 }

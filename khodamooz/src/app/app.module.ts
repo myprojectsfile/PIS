@@ -9,7 +9,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { RmtoModule } from './rmto/rmto.module';
+import { HttpClientModule } from '@angular/common/http'
 @NgModule({
     declarations: [
         AppComponent,
@@ -23,7 +24,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         MaterialModule,
         AppRoutingModule,
         ProfileModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        RmtoModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]

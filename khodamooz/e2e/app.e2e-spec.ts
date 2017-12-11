@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('ngapp App', () => {
+describe('Port Integrated Services App', () => {
   let page: AppPage;
 
   beforeEach(() => {
