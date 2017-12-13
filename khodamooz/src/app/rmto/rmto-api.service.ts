@@ -10,13 +10,13 @@ export class RmtoApiService {
 
   constructor(private http: HttpClient) { }
 
-  getReceiptsContainers(receiptsNoString: string): Observable<Container[]> {
+  getReceiptContainers(receiptNumber: string): Observable<Container[]> {
 
     const apiUri = window.location.origin;
 
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const headers = new HttpHeaders().set('Accept', 'application/json');
 
-    return this.http.post<any[]>(apiUri + '/api/CCS/GetReceiptsContainers', receiptsNoString, {headers: headers});
+    return this.http.get<any[]>(apiUri + '/api/CCS/GetReceiptContainers/' + receiptNumber, { headers: headers });
   }
 
 }

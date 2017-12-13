@@ -16,29 +16,29 @@ export class ReceiptContainersComponent {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   showSpinner = false;
-  receiptNo: string = null;
+  receiptNumber: string = null;
   containers: Container[] = [];
   displayedColumns = ['shomarehContainer', 'isoContainerCode', 'vaznNakhales', 'porYaKhali', 'vaznContainer', 'khatKeshtirani', 'namayandegiKeshtirani'];
   error: string = null;
 
 
   callApi() {
-    
-    this.showSpinner=true;
-    
-    this.rmtoApi.getReceiptsContainers('["' + this.receiptNo + '"]')
+
+    this.showSpinner = true;
+
+    this.rmtoApi.getReceiptContainers(this.receiptNumber)
       .subscribe(
       data => {
         this.error = null;
         this.containers = data;
         this.dataSource = new MatTableDataSource<Container>(this.containers);
         this.dataSource.paginator = this.paginator;
-        this.showSpinner=false;        
+        this.showSpinner = false;
       },
       error => {
         this.containers = [];
         this.error = error.error;
-        this.showSpinner=false;
+        this.showSpinner = false;
       }
       );
   }

@@ -9,7 +9,7 @@
   <div fxLayout="row" fxLayoutAlign="start center">
     <div fxFlex="10">
       <mat-form-field>
-        <input matInput name="receiptNo" [(ngModel)]="receiptNo" placeholder="شماره قبض انبار">
+        <input matInput name="receiptNo" [(ngModel)]="receiptNumber" placeholder="شماره قبض انبار">
       </mat-form-field>
     </div>
     <div fxFlex="10">
@@ -38,19 +38,19 @@
 
         <!-- Weight Column -->
         <ng-container matColumnDef="vaznNakhales">
-          <mat-header-cell *matHeaderCellDef> وزن بار </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> وزن ناخالص(بار+کانتینر) </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.vaznNakhales}} </mat-cell>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="porYaKhali">
-          <mat-header-cell *matHeaderCellDef> کانتینر پر </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>نوع کانتینر (پر/خالی)</mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.porYaKhali}} </mat-cell>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="vaznContainer">
-          <mat-header-cell *matHeaderCellDef> وزن کانتینر </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>  وزن کانتینر خالی </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{element.vaznContainer}} </mat-cell>
         </ng-container>
 
@@ -75,7 +75,7 @@
   </div>
   <div *ngIf="error" fxLayout="row" fxLayoutAlign="start center">
     <div fxFlex="20">
-      <p>قبض انباری با این شماره وجود ندارد</p>
+      <p>{{error}}</p>
     </div>
   </div>
 </div>
